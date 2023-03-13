@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <p>Question 1 :- Write one example explaining how you can write a callback function.</p>
+  <pre>
+    function printSum(su){
+      console.log(su)
+    }
+    
+    function calc(a,b,myCallback){
+      let sum = 0
+      sum = a + b
+      myCallback(sum)
+    }
+    
+    calc(5,8,printSum)
+  </pre>
+  <pre>Question 2 :- "Write a callback function to print numbers from 1 to 7, in which 1 should be printed after 1 sec, 2 should be printed after 2 sec, 3 should be printed after 3 sec, and so on. 
+
+    Explain callback hell.
+    Numbers
+    1
+    2
+    3
+    4
+    5
+    6
+    7"
+  </pre>
+  <pre>function main(a){
+    for (i=1 ; i<=a;i++){
+      setTimeout(() => {
+        console.log(i)
+      },i*1000)
+    }
+  }
+  main (7)</pre>
+  <pre>Question 3 :- "Write the promise function to print numbers from 1 to 7, in which 1 should be printed after 1 sec, 2 should be printed after 2 sec, 3 should be printed after 3 sec, and so on. 
+
+    Numbers
+    1
+    2
+    3
+    4
+    5
+    6
+    7"
+  </pre>
+  <pre>
+    let promise = new Promise((resolve,reject)=>{
+      let a = 2
+      if(a===2){
+        resolve("True")
+      }
+      else{
+        reject("Error")
+      }
+    })
+    promise.then((resolve)=>{
+      console.log(resolve)
+      for(i=0;i<=7;i++){
+        setTimeout(()=>{
+          console.log(i)
+        },i*1000)
+      }
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  </pre>
+  <pre>Question 4 :- "Create a promise function accepting an argument, if yes is passed to the function then it should go to resolved state and print Promise Resolved, and if nothing is passed 
+    then it should go to reject the state and catch the error and print Promise Rejected "</pre>
+    <pre>let a = "yes"
+      let newp = new Promise((resolve, reject) => {
+        if (a ==="yes"){
+          resolve("Promise Resolve")
+        }
+        else{
+          reject("Promise Rejected")
+        }
+      })
+    
+      newp.then((resolve)=>{
+        console.log(resolve)
+      })
+      newp.catch((error)=>{
+        console.log(error)
+      })
+    </pre>
+    <p>Question 5:- Create examples to explain callback function</p>
+    <pre>
+      function printSum(sum){
+        console.log(sum)
+       }
+      
+       function sum(a,b,callback){
+        let sum = 0 
+        sum = a+b
+        callback(sum)
+       }
+      
+       sum(6,8,printSum)
+    </pre>
+    <p>Question :- 6. Create examples to explain callback hell function</p>
+    <pre>    
+      function Fun1(callback1){
+      console.log("Fun1 was executed.");
+      callback1();
+      }
+      function Fun2(callbback2){
+      console.log("Fun2 was executed.");
+      callback2();
+      }
+      function Fun3(callback3){
+      console.log("Fun3 was executed.");
+      callback3();
+      }
+      function Fun4(callback4){
+      console.log("Fun4 was executed.");
+      callback4();
+      }
+  
+    Fun1(()=>{
+      Fun2(()=>{
+        Fun3(()=>{
+          Fun4(()=>{
+          });
+        });
+      });
+    });
+  </pre>
+  <p>Question 7:-  Create examples to explain promise function ?</p>
+  <pre>
+    let newp = new Promise((resolve,rejected)=>{
+      let a = 10
+      if (a%2==0){
+        resolve("Even")
+      }
+      else{
+        rejected("Odd")
+      }
+     })
+    
+     newp.then((resolve)=>{
+      console.log(resolve)
+     })
+     newp.catch((rejected)=>{
+      console.log(rejected)
+     })
+  </pre>
+  <p>Question 8. Create examples to explain async await function ?</p>
+  <pre>
+    let newp = new Promise((resolved)=>{
+      setTimeout(()=>{
+        console.log("Exaple Of Async Await")
+      },10000)
+    })
+  
+    async function test(){
+      let final = await (newp)
+      console.log(final)
+      console.log("working")
+    }  
+
+    test()
+  </pre>
+
+    <p>Question 9 </p>
+    <pre>const pro1 = new Promise((res,rej)=>{
+        setTimeout(()=>
+          res("promise 1 resolved"),1000)
+      })
+      
+      const pro2 = new Promise((res,rej)=>{
+        setTimeout(()=>
+          res("promise 2 resolved"),1000)
+      })
+      
+      const pro3 = new Promise((res,rej)=>{
+        setTimeout(()=>
+          res("promise 2 resolved"),1000)
+      })
+      
+      Promise.all([pro1,pro2,pro3])
+        .then(()=>{
+        console.log("our all promise resolved")
+      })
+      .catch(()=>{
+        console.log("Atleast one promise is rejected")
+      })</pre>
+</body>
+</html>
+
+<script>
+
+ let newp = new Promise((resolve,rejected)=>{
+  let a = 10
+  if (a%2==0){
+    resolve("Even")
+  }
+  else{
+    rejected("Odd")
+  }
+ })
+
+ newp.then((resolve)=>{
+  console.log(resolve)
+ })
+ newp.catch((rejected)=>{
+  console.log(rejected)
+ })
+
+
+    
+  
+</script>
